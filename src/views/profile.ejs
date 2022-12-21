@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/profile.css" type="text/css">
+  <title>Your Profile</title>
+</head>
+<body>
+   <div class="profile-container">
+      <% if( userProfile ) { %>
+        <% const { picture, nickname, ...rest } = userProfile %>
+          <h1> Welcome <%= userProfile.nickname %> </h1>
+          <img src="<%= userProfile.picture %>" width="300">
+    
+          <% for( let field in rest ) { %>
+            <p> <%=field%>: <%=rest[field]%> </p>
+          <% } %>
+    
+      <% } %>
+      <div>
+        <button class="button-nav"><a class="a-nav" href="/">home</a></button>
+      </div>
+    </div>
+  
+  </div>
+  
+</body>
+</html>
