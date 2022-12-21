@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HodoPile</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.0/dist/full.css" rel="stylesheet" type="text/css" />
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
     <header class="header">
-      <h1 class="main-heading">Hodopile</h1>
       <p class="main-description">  </p>
       <div>
-          <div class="nav-container">
+          <!-- <div class="nav-container">
               <% if( locals.user ) {%>
                   <div>
                       <button class="button-nav nav-item"><a class="a-nav" href="/logout">logout</a></button>
@@ -30,11 +30,49 @@
                       <button class="button-nav nav-item"><a class="a-nav" href="/login">login</a></button>
                   </div>
               <% } %>
-          </div>
+          </div> -->
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="navbar w-full bg-base-100">
+  <div class="navbar-start">
+    <img
+      src="https://toppng.com/public/uploads/preview/airplane-take-off-icon-airplane-1156291325186q3by6zc3.png"
+      width="50px"
+      height="50px"
+      sizes=""
+      srcset=""
+    />
+  </div>
+  <div class="navbar-center">
+    <a class="btn btn-ghost normal-case text-xl">HodoPile ™</a>
+  </div>
+  <div class="navbar-end">
+    <% if( locals.user ) {%>
+    <button id="logout" class="btn btn-outline">LOGOUT</button> 
+    <button class="btn btn-outline"><a href="#section1">HOME</a></button>
+    <button class="btn btn-outline">Favorites</button> <!-- isAuthed? Scroll to -->
+    <button class="btn btn-outline"><a href="#section3">ABOUT</a></button> <!-- Scroll to -->
+    <% } else { %>
+
+    <button id="login" class="btn btn-outline"><a class="a-nav" href="/login">login</a></button>
+    <% } %>
+
+    <!-- ----------------------------------------- -->
+  </div>
+</div>
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
       </div>    
     </header>
     <main class="main-container">
-
+      
+      <section class="section1">
+<!-- 
       <form >
         <div class="form-control w-full max-w-xs">
           <label class="label" for="inp-text">
@@ -48,54 +86,181 @@
             placeholder="Search Location"
           />
         </div>
-      </form>
+      </form> -->
 
-        <div id="cards-container" class="container"></div> 
+      <div class="centerMe">
 
+        <div id="profile"></div>
+          <h1 class="name font-bold" data-text="HodoPile">HodoPile</h1>
+  
+          <form action="submit">
+            <div class="form-control w-full max-w-xs">
+              <label class="label" for="inp-text">
+                <span class="label-text">
+                  Helping you choose your next destination
+                </span>
+              </label>
+              <input
+                id="inp-text"
+                class="input input-bordered w-full max-w-xs"
+                type="text"
+                placeholder="Search Location"
+              />
+            </div>
+          </form>
+        </div>
+</section>
+
+<section class="section2">
+
+        <div id="cards-container" class="container flex flex-wrap"></div> 
+
+   </section>
+        
+        <!-- +++++++++++++++++++++++++++++++++++++PROFILE SHOWED ON LOGIN++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    
+      <section class="section3">
+      
         <div>
           <% if( locals.user ) {%>
-            <div>Authenticated User Section</div>
+           <div> <div><div class="bg-gray-100">
+            <div class="container mx-auto my-5 p-5">
+                <div class="md:flex no-wrap md:-mx-2 ">
+                               <!-- Profile Card -->
+                               <div class="bg-white p-3 border-t-4 border-green-400">
+                                 <div class="image overflow-hidden">
+                                     <img class="h-auto w-full mx-auto"
+                                         src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                         alt="">
+                                 </div>
+                                 <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Hodo Modo</h1>
+                                 <h3 class="text-gray-600 font-lg text-semibold leading-6">DEVOPS Team lead</h3>
+                                 <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
+                                     consectetur adipisicing elit.
+                                     Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                                 <ul
+                                     class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                     <li class="flex items-center py-3">
+                                         <span>Status</span>
+                                         <span class="ml-auto"><span
+                                                 class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
+                                     </li>
+                                 </ul>
+                             </div>
+                             <div class="bg-white p-3 shadow-sm rounded-sm ">
+                               <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                                   <span clas="text-green-500">
+                                       <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke="currentColor">
+                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                               d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                       </svg>
+                                   </span>
+                                   <span class="tracking-wide">About</span>
+                               </div>
+                               <div class="text-gray-700">
+                                   <div class="grid md:grid-cols-2 text-sm">
+                                       <div class="grid grid-cols-2">
+                                           <div class="px-4 py-2 font-semibold">First Name:</div>
+                                           <div class="px-4 py-2">Hodo</div>
+                                       </div>
+                                       <div class="grid grid-cols-2">
+                                           <div class="px-4 py-2 font-semibold">Last Name:</div>
+                                           <div class="px-4 py-2">Modo</div>
+                                       </div>
+                                       <div class="grid grid-cols-2">
+                                           <div class="px-4 py-2 font-semibold">Gender:</div>
+                                           <div class="px-4 py-2">UKNOWN</div>
+                                       </div>
+                                       <div class="grid grid-cols-2">
+                                           <div class="px-4 py-2 font-semibold">Contact No:</div>
+                                           <div class="px-4 py-2">+1 800 387 0000</div>
+                                       </div>
+                                       <div class="grid grid-cols-2">
+                                           <div class="px-4 py-2 font-semibold">Current Address:</div>
+                                           <div class="px-4 py-2">Elon Lane, Red Crater Mars 3aE12</div>
+                                       </div>
+                                       <div class="grid grid-cols-2">
+                                           <div class="px-4 py-2 font-semibold">Email:</div>
+                                           <div class="px-4 py-2">
+                                               <a class="text-blue-800" href="mailto:hodouser@example.com">Hodo@example.com</a>
+                                           </div>
+                                       </div>
+                                   </div>
+                           </div>               
+                      </div>             
+            </div>
+   
+        </div>
+   </div>
+  </div>
           <% } else { %>
-            <div>Non Auth Section</div>
+            <div>
+              <!-- Non Auth Section -->
+            </div>
           <% } %>
         </div>
 
+                <!-- +++++++++++++++++++++++++++++++++++++PROFILE END++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
         <% if( locals.user ) {%>
-          SHOWING FAVORITES
+          <!-- SHOWING FAVORITES -->
           <div id="favorites"></div> 
           <div id="favorites-container" class="container"></div>
         <% } %>
+      </section>
 
-        ABOUT
+                <!-- +++++++++++++++++++++++++++++++++++++ABOUT PAGE++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                <section class="section4">
+
+                  <div id="section4">
+                    <div class="hero">
+                      <div class="hero-content">
+                        <div class="max-w-lg">
+                          <h1 class="name text-5xl ">About The Team...</h1>
+                          <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                            aspernatur nemo sed saepe consectetur vero enim mollitia, iusto
+                            autem vel. Saepe aledit dolorum nesciunt, ex vel
+                            modi, doloremque nulla ab! Amet, repellendus ipsa maxime quam, cum
+                            nesciunt quidem ad expedita magni omnis minus.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+              
+      
         <div class="flex flex-wrap justify-around ..."> 
           <div id="about">
           <div class="avatar">
-            <div class="w-80 rounded">
+            <div class="w-60 rounded">
               <h1 class="center">lorenzo</h1>
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
   
           <div class="avatar">
-            <div class="w-80 rounded">
+            <div class="w-60 rounded">
               <h1 class="center">Juan</h1>
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
   
           <div class="avatar">
-            <div class="w-80 rounded">
+            <div class="w-60 rounded">
               <h1 class="center">Ty'Reik</h1>
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
         </div>
+                <!-- +++++++++++++++++++++++++++++++++++++ABOUT PAGE++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
     </main>
     <footer class="footer p-10 bg-base-300 text-neutral-content">
       <div>
         <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" class="fill-current"><path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path></svg>
-        <p>HodoPile<br/>-- Providing a travel guide.</p>
+        <p>HodoPile<br/>-- Providing a safe travel guide.</p>
       </div> 
       <div>
         <span class="footer-title">Social</span> 
@@ -106,7 +271,23 @@
         </div>
       </div>
     </footer>
+  </section>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/index.js"></script>
   </body>
 </html>
+
+
+
+<!-- <section class="section1">
+
+</section>
+<section class="section2">
+
+</section> -->
+<!-- <section class="section3">
+
+</section> -->
+<!-- <section class="section4">
+
+</section> -->

@@ -96,7 +96,7 @@ const createCardElement = ( destinationObj, containerElement ) => {
     const { title } = tags[0]
     const card = document.createElement("div")
     card.setAttribute("id",`cardID:${id}`)
-    card.setAttribute("class","card target bg-base-100 shadow-xl flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-4")
+    card.setAttribute("class","card target bg-base-100 shadow-xl flex w-full sm:w-1/2 md:w-1/5 lg:w-1/6 mb-4")
     card.innerHTML = `
         <div id=id:${id}>
                 <h2 class="card-title">${title}</h2>
