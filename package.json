@@ -1,0 +1,23 @@
+{
+  "name": "hodopile",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "~2.6.1",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.11.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^6.8.1",
+    "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
