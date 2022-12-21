@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/profile.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Your Profile</title>
 </head>
 <body>
    <div class="profile-container">
       <% if( userProfile ) { %>
         <% const { picture, nickname, ...rest } = userProfile %>
-          <h1> Welcome <%= userProfile.nickname %> </h1>
+          <h1><i class="fa-solid fa-text">Welcome</i> <%= userProfile.nickname %> </h1>
           <img src="<%= userProfile.picture %>" width="300">
     
           <% for( let field in rest ) { %>
@@ -20,11 +23,10 @@
     
       <% } %>
       <div>
-        <button class="button-nav"><a class="a-nav" href="/">home</a></button>
+        <button class="button-nav"><a class="btn btn-primary" href="/" role="button">HOME</a>
       </div>
     </div>
   
   </div>
-  
 </body>
 </html>

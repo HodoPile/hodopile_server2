@@ -1,8 +1,8 @@
 "use strict";
 const { start } = require("../server.js")
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 4001
-const connectionString = process.env.ATLAS_URI_MONGOOSE
+const PORT = 3000
+const connectionString = "mongodb+srv://antoni909:8X1Minktmi5kiX8B@cluster0.pgojx7a.mongodb.net/hodopile?retryWrites=true&w=majority"
 
 module.exports = { 
     runApp: () => {

@@ -1,9 +1,7 @@
-const DELAY_INPUT = 1500
-const UNSPLASH_ACCESS_KEY = "Vd8pXJDerwdrThr-HAsU9U8LHjAuWlFzi782_HYjlqU"
-const UNSPLASH_BASE_URL = "https://api.unsplash.com"
-const inputTextField = document.getElementById("inp-text")
-const cardsContainer = document.getElementById("cards-container")
-const favoritesContainer = document.getElementById("favorites-container")
+import { UNSPLASH_BASE_URL, NO_FOUND_RESULTS, 
+    cardsContainer, inputTextField, DELAY_INPUT } from "../constants";
+import { UNSPLASH_ACCESS_KEY } from "../secret.js";
+import { handleError } from "../error";
 
 // CB's
 const debounce = (fn , delay) => {
@@ -58,11 +56,17 @@ const updateOneCard = async ( data ) => {
 // API CALLS
 const getUnsplashImgURL = ( query ) => {
     fetch(`${ UNSPLASH_BASE_URL }/search/photos?client_id=${ UNSPLASH_ACCESS_KEY }&page=1&per_page=10&query=${ query }}`)
-        .then( response => response.json())
+        .then((response) => response.json())
         .then( ({ results }) => {
-            renderUnsplashResults( results )
+            if(!results || results.length === 0 ) {
+                handleError(NO_FOUND_RESULTS);
+            } else {
+                renderUnsplashResults( results );
+            }
         })
-        .catch( err => console.log( err ) )
+        .catch((err) => {
+            handleError(err);
+        });
 }
 const getFullCardInfo = async (card_id) => {
     const result = await fetch(`${UNSPLASH_BASE_URL}/photos/${card_id}/?client_id=${ UNSPLASH_ACCESS_KEY }`)
@@ -116,5 +120,39 @@ const createCardElement = ( destinationObj, containerElement ) => {
 
 inputTextField.addEventListener( "input", debounce( handleInputChange, DELAY_INPUT ))
 window.onload = () => {
-    getUnsplashImgURL('africa')
+    // getRandomResults();
+    getRandomResults();
 };
+
+function getRandomResults() {
+    fetch(UNSPLASH_BASE_URL)
+    .then(function(response) {
+        return response.json();
+    }) .then(function(results) {
+        if(!results || results.length === 0 ) {
+            handleError(NO_FOUND_RESULTS);
+        } else {
+            const randomImages = Math.floor(Math.random() * results.response.length);
+            renderUnsplashResults(randomImages);
+        }
+    })
+    .catch((err) => {
+        handleError(err);
+    });
+}
+
+// function getRandomResults() {
+//     fetch(UNSPLASH_BASE_URL)
+//     .then((response) => response.json())
+//     .then( ({ results }) => {
+//         if(!results || results.length === 0 ) {
+//             handleError(NO_FOUND_RESULTS);
+//         } else {
+//             const randomImages = Math.floor(Math.random() * results.response.length);
+//             renderUnsplashResults(randomImages);
+//         }
+//     })
+//     .catch((err) => {
+//         handleError(err);
+//     });
+// }
