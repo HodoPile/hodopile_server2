@@ -1,38 +1,30 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  min-height: 100vh;
-  margin: 0 auto;
-}
-header{
-  width: 100%;
-  margin: 0;
-  padding: 60px 100px;
-  background-color: #e9ecef;
-  text-align: center;
-  line-height: 1.5;
-  font-size: 25px;
-  font-family: sans-serif;
-}
-.main-container{
+
+.main-container {
   display: flex;
   margin: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.container{
+.container {
   display: flex;
+  direction: row;
   margin: 0;
   flex-flow: wrap;
   justify-content: center;
 }
-.container-item{}
 .nav-container{
+  align-items: center;
+  gap: 12px;
+}
+.nav-container {
   display: flex;
   padding-top: 20px;
   flex-direction: row;
@@ -40,7 +32,8 @@ header{
   align-items: center;
   gap: 25px;
 }
-.icon-heart, .icon-trash {
+.icon-heart,
+.icon-trash {
   width: 30px;
   height: 30px;
   top: 5%;
@@ -57,4 +50,136 @@ header{
 
 .credit-author{
   font-size: x-small;
+}
+/* ############################################# */
+
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  position: fixed;
+  box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.name {
+  font-family: "Nerko One", cursive;
+  font-size: 28vh;
+  color: white;
+  -webkit-text-stroke: 0.3vh black;
+}
+
+.name::before {
+  content: attr(data-text);
+  position: absolute;
+  color: black;
+  -webkit-text-stroke: 0vh black;
+  overflow: hidden;
+  width: 0;
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    width: 0%;
+  }
+  70% {
+    width: 90%;
+  }
+}
+
+.centerMe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.landingCard {
+  margin-bottom: 3px;
+}
+
+.card-container {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.credit {
+  font-size: x-small;
+}
+
+/* *************************************page layout in sections**************************** */
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+img {
+  border-radius: 2%;
+}
+
+.flex {
+  margin-bottom: 2px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(-360deg);
+}
+
+.section1 {
+  min-height: 50vh;
+  height: auto;
+  width: 100%;
+}
+
+.section2 {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+}
+
+.section3 {
+  min-height: 40vh;
+  height: auto;
+  width: 100%;
+}
+
+.section4 {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
 }

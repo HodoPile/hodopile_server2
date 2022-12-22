@@ -7,7 +7,7 @@ const { Data } = require("../schema/data_schema")
 
 
 const getUnsplashList = ( query ) => {
-  return fetch(`${ process.env.UNSPLASH_BASE_URL }/search/photos?client_id=${ process.env.UNSPLASH_ACCESS_KEY }&page=1&per_page=10&query=${ query }}`)
+  return fetch(`${ process.env.UNSPLASH_BASE_URL }/search/photos?client_id=${ process.env.UNSPLASH_ACCESS_KEY }&page=1&per_page=30&query=${ query }}`)
       .then( response => response.json())
       .then( ({ results }) => results )
       .catch( err => console.log( err ) )
