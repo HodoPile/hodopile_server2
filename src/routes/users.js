@@ -4,26 +4,21 @@ const { requiresAuth } = require('express-openid-connect');
 const { User } = require("../schema/user_schema")
 const { Favorite } = require("../schema/favorite_schema")
 
-
-router.get('/user',function(req, res) {
-  res.send('respond with a users resource');
-});
-
-// app.get("/user", (req,res) => {
-//   User
-//       .find({})
-//       .populate("favorited")
-//       .then( result => res.send( result ))
-//       .catch( err => console.log(err) )
-// })
-// router.get("/user/:sub_id", (req,res) => {
-//   const { sub_id } = req.params
-//   User
-//       .find( sub_id )
-//       .populate( "favorited" )
-//       .then( result => res.send(result))
-//       .catch( err => console.log(err) )
-// })
+router.get("/user", (req,res) => {
+  User
+      .find({})
+      .populate("favorited")
+      .then( result => res.send( result ))
+      .catch( err => console.log(err) )
+})
+router.get("/user/:sub_id", (req,res) => {
+  const { sub_id } = req.params
+  User
+      .find( sub_id )
+      .populate( "favorited" )
+      .then( result => res.send(result))
+      .catch( err => console.log(err) )
+})
 
 router.put("/user", (req,res)=>{
   const [ , sub_id ] = req.oidc.user.sub.split("|")
@@ -33,16 +28,12 @@ router.put("/user", (req,res)=>{
   Favorite
       .findOneAndUpdate( filterCards, updateCard, { upsert: true, new: true })
       .then( favResult => {
-        console.log(favResult)
           User
               .findOneAndUpdate( 
                   { sub_id: sub_id },
                   { $addToSet: { favorited: favResult._id } }
               )
-              .then( result => {
-                  console.log(result)
-                  res.send( result )
-              })
+              .then( result => res.send( result ))
               .catch( err => console.log( err ))
       })
       .catch( err => console.log( err ))
@@ -51,8 +42,6 @@ router.put("/user", (req,res)=>{
 router.delete("/user/:card_id", (req,res) => {
   const { card_id } = req.params
   const [ , sub_id ] = req.oidc.user.sub.split("|")
-  // get favarited objectID
-  // remove from users array
 
   Favorite
     .findOne({ card_id: card_id })

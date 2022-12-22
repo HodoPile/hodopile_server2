@@ -12,7 +12,7 @@ const listOfHeartIcons = document.querySelectorAll(".icon-heart")
 
 const getFullCardInfo = async (card_id) => {
     const result = await fetch(`${UNSPLASH_BASE_URL}/photos/${card_id}/?client_id=${ UNSPLASH_ACCESS_KEY }`)
-    const data = await result.json()  // gets location information (lat/lon, tags, similar collections, etc)
+    const data = await result.json() 
     return data
 }
 const appendListenersToHeartIcons = ( heartIconsList ) => {
@@ -38,17 +38,13 @@ const appendListenersToHeartIcons = ( heartIconsList ) => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify( CARD_DATA )
             })
-            .then( res => {
-                console.log(res)
-                return res
-            })
+            .then( res => res )
             .then( () => location.reload() )
             .catch( err => console.log( err ) )
         })
     })
 }
 const appendListenersToTrashIcons = ( trashIconsList ) => {
-
     trashIconsList.forEach( iconImageElement => {
         iconImageElement.addEventListener("click", async ( e ) => {
     
@@ -62,10 +58,8 @@ const appendListenersToTrashIcons = ( trashIconsList ) => {
             .then( res => res )
             .then( () => location.reload() )
             .catch( err => console.log( err ) )
-
         })
     })
-
 }
 const debounce = (fn , delay) => {
         let id; 
@@ -78,17 +72,12 @@ const handleInputChange = (e) => {
     let userInput = e.target.value
     userInput = (userInput)? userInput : 'Egypt'
     const doc = { userInput: userInput }
-    console.log(doc)
     fetch(`${SERVER_URL}/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify( doc )
     })
-    .then( response => {
-        console.log(response)
-        return response
-    })
-    .then( () => location.reload() )
+    .then( response => location.reload() )
     .catch( err => console.log( err ) )
 }
 
@@ -98,3 +87,4 @@ window.onload = () => {
     appendListenersToHeartIcons( listOfHeartIcons )
     appendListenersToTrashIcons( listOfTrashIcons )
 };
+

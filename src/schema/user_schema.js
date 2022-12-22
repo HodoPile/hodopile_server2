@@ -2,7 +2,6 @@
 
 const { mongoose, Schema } = require("mongoose");
 
-// TODO: add updated_at field
 const  userSchema = new Schema({
     name: { type: String, required: true },
     nickname: { type: String, default: "lorem ipsum" },
