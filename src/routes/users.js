@@ -24,6 +24,7 @@ router.get('/user',function(req, res) {
 //       .then( result => res.send(result))
 //       .catch( err => console.log(err) )
 // })
+
 router.put("/user", (req,res)=>{
   const [ , sub_id ] = req.oidc.user.sub.split("|")
   const { card_id, ...restOfCard } = req.body
