@@ -4,7 +4,7 @@ const UNSPLASH_BASE_URL = "https://api.unsplash.com"
 const inputTextField = document.getElementById("inp-text")
 const cardsContainer = document.getElementById("cards-container")
 const favoritesContainer = document.getElementById("favorites-container")
-const SERVER_URL = "http://localhost:3000"
+const SERVER_URL = "https://hodopile-server.herokuapp.com/"
 
 const listOfTrashIcons = document.querySelectorAll(".icon-trash")
 const listOfHeartIcons = document.querySelectorAll(".icon-heart")
