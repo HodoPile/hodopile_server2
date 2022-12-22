@@ -71,6 +71,21 @@ html {
   z-index: 10;
 }
 
+.button-nav{
+  background-color: #44c767;
+  color: whitesmoke;
+  border-radius:10px;
+  display:inline-block;
+  cursor:pointer;
+  font-size:25px;
+  padding:5px 15px;
+  text-decoration-line: none;
+}
+
+.a-nav{
+  text-decoration: none;
+}
+
 .name {
   font-family: "Nerko One", cursive;
   font-size: 28vh;
@@ -86,6 +101,35 @@ html {
   overflow: hidden;
   width: 0;
   animation: animate 15s linear infinite;
+}
+
+.subname{
+  font-family: "Nerko One", cursive;
+  font-size: 10vh;
+  color: white;
+  -webkit-text-stroke: 0.3vh black;
+}
+.subname-devs{
+  font-family: "Nerko One", cursive;
+  font-size: 6vh;
+  color: white;
+  -webkit-text-stroke: 0.3vh black;
+}
+
+
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+}
+
+
+.about-container{
+  text-align: center;
 }
 
 @keyframes animate {
@@ -179,7 +223,7 @@ img {
 }
 
 .section4 {
-  min-height: 100vh;
+  min-height: 75vh;
   height: auto;
   width: 100%;
 }
