@@ -28,11 +28,10 @@ header{
 .container{
   display: flex;
   margin: 0;
-  flex-direction: row;
+  flex-flow: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 5px;
 }
+.container-item{}
 .nav-container{
   display: flex;
   padding-top: 20px;
@@ -46,4 +45,16 @@ header{
   height: 30px;
   top: 5%;
   left: 85%;
+}
+
+.card{
+  border: 1px grey solid;
+  background-color: white;
+  border-radius: 5px;
+  max-width: 260px;
+  margin:10px;
+}
+
+.credit-author{
+  font-size: x-small;
 }
